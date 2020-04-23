@@ -1,5 +1,5 @@
 import re
-from q1.mirrored_boyermoore import mirrored_boyer_moore
+from q3.modified_kmp import modified_kmp
 
 def tester(text, pattern):
     return [m.start() for m in re.finditer('(?=' + pattern + ')', text)]
@@ -14,7 +14,7 @@ if __name__ == "__main__":
             for i, pattern in enumerate(patterns):
                 pattern = pattern.strip()
                 works = tester(text_line, pattern)
-                bm = mirrored_boyer_moore(text_line, pattern)
+                bm = modified_kmp(text_line, pattern)
                 if not set(works) == set(bm):
                     print(pattern)
                     main_list = len(list(set(works) - set(bm)))
