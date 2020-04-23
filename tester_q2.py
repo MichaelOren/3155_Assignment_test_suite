@@ -15,8 +15,8 @@ def naive_wildcard(text, pattern):
 
 
 if __name__ == "__main__":
-    text_file = 'reference.txt'
-    pattern_file = 'pattern-collection-wildcards.txt'
+    text_file = "/text_files/reference.txt"
+    pattern_file = '/text_files/pattern-collection-wildcards.txt'
     with open(text_file) as text:
         with open(pattern_file) as patterns:
             text_line = list(text.readlines())[0]
