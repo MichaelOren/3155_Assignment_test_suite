@@ -137,10 +137,3 @@ gusfields.py
 wildcard_matching.py
 boyerMoore.py
 tester.py
-*.txt
-!pattern_tests.txt
-!pattern_collection.txt
-!pattern_collection_2.txt
-!pattern_collection-wildcards.txt
-!pattern_collection-wildcards_2.txt
-!reference.txt
