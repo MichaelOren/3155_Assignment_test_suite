@@ -7,7 +7,7 @@ def naive_wildcard(text, pattern):
         for j, p_ch in enumerate(pattern):
             if text[i + j] == p_ch or p_ch == "?":
                 if j == len(pattern) - 1:
-                    results.append(i)
+                    results.append(i + 1)
                 continue
             else:
                 break
@@ -15,8 +15,9 @@ def naive_wildcard(text, pattern):
 
 
 if __name__ == "__main__":
-    text_file = "/text_files/reference.txt"
-    pattern_file = '/text_files/pattern-collection-wildcards.txt'
+    text_file = "text_files/reference.txt"
+    pattern_file = 'text_files/pattern-collection-wildcards.txt'
+    # pattern_file = 'text_files/pattern-collection-wildcards_2.txt'
     with open(text_file) as text:
         with open(pattern_file) as patterns:
             text_line = list(text.readlines())[0]
@@ -26,9 +27,8 @@ if __name__ == "__main__":
                 bm = wildcard(text_line, pattern)
                 if not set(works) == set(bm):
                     print(pattern)
-                    main_list = len(list(set(works) - set(bm)))
-                    # print(sorted(main_list))
-                    print(main_list)
-                    break
+                    main_list = list(set(bm) - set(works))
+                    print(sorted(list(main_list)))
+                    print(len(main_list))
                 else:
                     print(i, "True")

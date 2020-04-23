@@ -2,12 +2,13 @@ import re
 from q1.mirrored_boyermoore import mirrored_boyer_moore
 
 def tester(text, pattern):
-    return [m.start() for m in re.finditer('(?=' + pattern + ')', text)]
+    return [m.start() + 1 for m in re.finditer('(?=' + pattern + ')', text)]
 
 
 if __name__ == "__main__":
-    text_file = "/text_files/reference.txt"
-    pattern_file = '/text_files/pattern-collection.txt'
+    text_file = "text_files/reference.txt"
+    pattern_file = 'text_files/pattern-collection.txt'
+    # pattern_file = 'text_files/pattern-collection_2.txt'
     with open(text_file) as text:
         with open(pattern_file) as patterns:
             text_line = list(text.readlines())[0]
