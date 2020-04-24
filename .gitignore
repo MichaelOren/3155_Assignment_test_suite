@@ -129,9 +129,10 @@ dmypy.json
 .pyre/
 
 # Assignment related files
-*.py
+# *.py
 !tester*.py
 mirrored_boyer_moore.py
+mirrored_boyermorre.py
 modified_kmp.py
 gusfields.py
 wildcard_matching.py
