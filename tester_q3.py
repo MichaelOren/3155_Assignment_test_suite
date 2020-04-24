@@ -1,6 +1,8 @@
 import re
 from q3.modified_kmp import modified_kmp
 
+from report_helper import print_diff
+
 def tester(text, pattern):
     return [m.start() + 1 for m in re.finditer('(?=' + pattern + ')', text)]
 
@@ -26,16 +28,14 @@ if __name__ == "__main__":
 
     with open("text_files/add_text_here.txt") as texts:
         with open("text_files/add_patterns_here.txt") as patterns:
+            counter = -1
             for text, pattern in zip(texts, patterns):
+                counter += 1
                 text = text.strip()
                 pattern = pattern.strip()
                 works = tester(text, pattern)
                 bm = modified_kmp(text, pattern)
-                if not set(works) == set(bm):
-                    print(pattern)
-                    main_list = len(list(set(works) - set(bm)))
-                    # print(sorted(main_list))
-                    print(main_list)
+                passed = print_dff(works, bm, pattern, counter)
+                if not passed:
                     break
-                else:
-                    print("True")
+            print("====================")
