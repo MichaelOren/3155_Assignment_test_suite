@@ -132,7 +132,7 @@ dmypy.json
 # *.py
 !tester*.py
 mirrored_boyer_moore.py
-mirrored_boyermorre.py
+mirrored_boyermoore.py
 modified_kmp.py
 gusfields.py
 wildcard_matching.py
